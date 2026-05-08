@@ -1,0 +1,45 @@
+{
+  "name": "tours-sys",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:ensure": "prisma migrate deploy && prisma db push --skip-generate",
+    "db:ensure:dev": "node scripts/db-ensure-dev.cjs",
+    "db:seed:agency": "node scripts/seed-initial-agency.cjs",
+    "predev": "npm run db:generate && npm run db:ensure:dev",
+    "dev": "next dev --webpack -p 3003",
+    "prebuild": "npm run db:generate && npm run db:ensure",
+    "build": "next build",
+    "build:standalone": "next build",
+    "package:vps": "npm run build:standalone && node scripts/package-standalone.cjs",
+    "prestart": "npm run db:generate && npm run db:ensure",
+    "start": "next start -p 3003",
+    "start:standalone": "node .deploy/server.js",
+    "lint": "eslint",
+    "postpull": "npm run build"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "cheerio": "^1.2.0",
+    "formidable": "^3.5.4",
+    "libphonenumber-js": "^1.12.41",
+    "next": "16.1.6",
+    "nodemailer": "^8.0.4",
+    "prisma": "^6.19.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/formidable": "^3.5.0",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

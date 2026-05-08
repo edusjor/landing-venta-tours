@@ -1,0 +1,284 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+} 
+
+enum AgencyStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum SuspendedStorefrontMode {
+  BLOCK
+  HIDE
+}
+
+enum AgencyDomainType {
+  SUBDOMAIN
+  CUSTOM_DOMAIN
+}
+
+enum AgencyDomainVerificationStatus {
+  PENDING
+  VERIFIED
+  FAILED
+}
+
+enum AgencyDomainTlsStatus {
+  NOT_REQUESTED
+  PENDING
+  ACTIVE
+  FAILED
+}
+
+enum AgencyUserRole {
+  OWNER
+  ADMIN
+  EDITOR
+  AGENT
+  VIEWER
+}
+
+enum MediaAssetStatus {
+  ACTIVE
+  TRASHED
+}
+
+enum AgencyPaymentMode {
+  GATEWAY
+  MANUAL
+  BOTH
+}
+
+enum ReservationStatus {
+  PENDING
+  PENDING_PAYMENT
+  PAYMENT_REVIEW
+  CONFIRMED
+  CANCELLED
+  REJECTED
+}
+
+enum TourStatus {
+  ACTIVO
+  NO_ACTIVO 
+  BORRADOR
+}
+
+model Agency {
+  id            Int            @id @default(autoincrement())
+  name          String
+  slug          String         @unique
+  internalSubdomain String?    @unique
+  email         String?
+  phone         String?
+  whatsapp      String?
+  logoUrl       String?
+  coverImageUrl String?
+  description   String?
+  status        AgencyStatus   @default(ACTIVE)
+  suspendedStorefrontMode SuspendedStorefrontMode @default(BLOCK)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  domains       AgencyDomain[]
+  users         User[]
+  categories    Category[]
+  tours         Tour[]
+  reservations  Reservation[]
+  mediaAssets   MediaAsset[]
+  paymentSettings AgencyPaymentSettings?
+  auditLogs     AgencyAuditLog[]
+}
+
+model AgencyDomain {
+  id         Int              @id @default(autoincrement())
+  agencyId   Int
+  agency     Agency           @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  host       String           @unique
+  isActive   Boolean          @default(true)
+  isPrimary  Boolean          @default(false)
+  isVerified Boolean          @default(false)
+  type       AgencyDomainType @default(SUBDOMAIN)
+  verificationStatus AgencyDomainVerificationStatus @default(PENDING)
+  verificationRecordType  String?
+  verificationRecordName  String?
+  verificationRecordValue String?
+  verificationCheckedAt   DateTime?
+  verificationFailureReason String?
+  tlsStatus    AgencyDomainTlsStatus @default(NOT_REQUESTED)
+  tlsCheckedAt DateTime?
+  tlsFailureReason String?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([agencyId])
+  @@index([agencyId, type, isPrimary])
+  @@index([agencyId, isActive])
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  agencyId     Int
+  agency       Agency         @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  email        String
+  name         String?
+  passwordHash String?
+  role         AgencyUserRole @default(OWNER)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  auditLogs    AgencyAuditLog[]
+
+  @@unique([agencyId, email])
+  @@index([agencyId, role])
+}
+
+model MediaAsset {
+  id               Int              @id @default(autoincrement())
+  agencyId         Int
+  agency           Agency           @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  name             String
+  relativePath     String
+  originalRelativePath String?
+  url              String
+  extension        String?
+  mimeType         String?
+  size             Int?
+  status           MediaAssetStatus @default(ACTIVE)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@unique([agencyId, relativePath])
+  @@index([agencyId, status])
+}
+
+model Category {
+  id       Int     @id @default(autoincrement())
+  agencyId Int
+  agency   Agency  @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  name     String
+  tours    Tour[]
+
+  @@unique([agencyId, name])
+  @@index([agencyId])
+}
+
+model Tour {
+  id               Int        @id @default(autoincrement())
+  agencyId         Int
+  agency           Agency     @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  title            String
+  slug             String
+  description      String
+  price            Float
+  minPeople        Int        @default(1)
+  images           String[]
+  status           TourStatus @default(ACTIVO)
+  country          String?
+  zone             String?
+  departurePoint String?
+  durationDays     Int?
+  durationHours    Int?
+  activityType     String?
+  difficulty       String?
+  rating           Float?
+  reviews          Int?
+  guideType        String?
+  transport        String?
+  groups           String?
+  story            String[]   @default([])
+  includedItems    String[]   @default([])
+  recommendations String[] @default([])
+  faqs             Json?
+  priceOptions     Json?
+  tourPackages     Json?
+  availabilityConfig Json?
+  featured         Boolean    @default(false)
+  isDeleted        Boolean    @default(false)
+  deletedAt        DateTime?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  categoryId       Int
+  category         Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  availability     Availability[]
+  reservations     Reservation[]
+
+  @@unique([agencyId, slug])
+  @@index([agencyId, createdAt])
+}
+
+model Availability {
+  id      Int      @id @default(autoincrement())
+  date    DateTime
+  maxPeople Int
+  tourId  Int
+  tour    Tour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+}
+
+model Reservation {
+  id        Int               @id @default(autoincrement())
+  agencyId  Int
+  agency    Agency            @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  tourId    Int
+  tour      Tour              @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  status    ReservationStatus @default(PENDING)
+  people    Int
+  adults    Int?
+  kids      Int?
+  date      DateTime
+  name      String
+  lastName  String?
+  email     String
+  emailConfirm String?
+  phone     String?
+  hotel     String?
+  paymentMethod String?
+  sinpeReceiptUrl String?
+  manualPaymentProofUrl String?
+  paymentReviewNote String?
+  promoCode String?
+  scheduleTime String?
+  packageTitle String?
+  priceBreakdown Json?
+  totalAmount Float?
+  paid      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([agencyId, createdAt])
+  @@index([agencyId, status])
+}
+
+model AgencyPaymentSettings {
+  id                        Int               @id @default(autoincrement())
+  agencyId                  Int               @unique
+  agency                    Agency            @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  paymentMode               AgencyPaymentMode @default(BOTH)
+  gatewayProvider           String?
+  gatewayConfigJson         Json?
+  manualPaymentInstructions String?
+  bankAccountName           String?
+  bankAccountNumber         String?
+  bankAccountIban           String?
+  sinpeMobile               String?
+  updatedAt                 DateTime          @updatedAt
+}
+
+model AgencyAuditLog {
+  id         Int      @id @default(autoincrement())
+  agencyId   Int
+  agency     Agency   @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  userId     Int?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String
+  entityType String
+  entityId   String?
+  createdAt  DateTime @default(now())
+
+  @@index([agencyId, createdAt])
+  @@index([userId, createdAt])
+}
