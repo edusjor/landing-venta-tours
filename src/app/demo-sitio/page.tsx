@@ -4,16 +4,16 @@ export default function DemoSiteHomePage() {
   const highlights = [
     "Experiencias nacionales e internacionales",
     "Aliados locales y operadores verificados",
-    "Acompanamiento cercano antes, durante y despues",
+    "Acompañamiento cercano antes, durante y después",
   ] as const;
 
   const featuredTours = [
     {
       featured: true,
       category: "Naturaleza",
-      title: "Aqui va tu tour estrella",
+      title: "Aquí va tu tour estrella",
       desc: "Un resumen atractivo del tour principal con beneficios claros, inclusiones y estilo de experiencia.",
-      location: "Aqui va la ubicacion",
+      location: "Aquí va la ubicación",
       price: "Desde $129",
       image:
         "https://images.unsplash.com/photo-1501554728187-ce583db33af7?auto=format&fit=crop&w=1400&q=80",
@@ -21,9 +21,9 @@ export default function DemoSiteHomePage() {
     {
       featured: false,
       category: "Cultura",
-      title: "Aqui va tu circuito cultural",
+      title: "Aquí va tu circuito cultural",
       desc: "Ideal para mostrar experiencias autenticas, comunidades locales y actividades guiadas paso a paso.",
-      location: "Aqui va la ubicacion",
+      location: "Aquí va la ubicación",
       price: "Desde $189",
       image:
         "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=80",
@@ -31,9 +31,9 @@ export default function DemoSiteHomePage() {
     {
       featured: true,
       category: "Playa",
-      title: "Aqui va tu experiencia de playa",
-      desc: "Perfecto para mostrar itinerario, logistica resuelta y una propuesta irresistible para el cliente final.",
-      location: "Aqui va la ubicacion",
+      title: "Aquí va tu experiencia de playa",
+      desc: "Perfecto para mostrar itinerario, logística resuelta y una propuesta irresistible para el cliente final.",
+      location: "Aquí va la ubicación",
       price: "Desde $99",
       image:
         "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1400&q=80",
@@ -43,19 +43,19 @@ export default function DemoSiteHomePage() {
   const reasons = [
     {
       title: "Turismo responsable",
-      desc: "Aqui explicas como tu agencia aporta valor real a comunidades, proveedores y viajeros.",
+      desc: "Aquí explicas cómo tu agencia aporta valor real a comunidades, proveedores y viajeros.",
     },
     {
       title: "Calidad y seguridad",
-      desc: "Aqui va tu promesa de servicio, protocolos y experiencia operativa para generar confianza.",
+      desc: "Aquí va tu promesa de servicio, protocolos y experiencia operativa para generar confianza.",
     },
     {
       title: "Destinos variados",
-      desc: "Aqui muestras que cubres naturaleza, playa, aventura o internacional segun el perfil del cliente.",
+      desc: "Aquí muestras que cubres naturaleza, playa, aventura o internacional según el perfil del cliente.",
     },
     {
-      title: "Atencion personalizada",
-      desc: "Aqui dejas claro que acompanias por WhatsApp, llamada o email en todo el proceso.",
+      title: "Atención personalizada",
+      desc: "Aquí dejas claro que acompañas por WhatsApp, llamada o email en todo el proceso.",
     },
   ] as const;
 
@@ -81,7 +81,7 @@ export default function DemoSiteHomePage() {
                 Home demo editable
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-slate-950 sm:text-5xl">
-                Descubre como puede verse la home de tu agencia con tu propia informacion
+                Descubre cómo puede verse la home de tu agencia con tu propia información
               </h1>
               <p className="mt-4 max-w-2xl text-base text-slate-700 sm:text-lg">
                 Estructura inspirada en agencias de tours que venden bien: mensaje claro, tours destacados,
@@ -120,9 +120,9 @@ export default function DemoSiteHomePage() {
               />
               <div className="p-5">
                 <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Espacio personalizable</p>
-                <p className="mt-2 text-lg font-black text-slate-900">Aqui va tu propuesta principal de temporada</p>
+                <p className="mt-2 text-lg font-black text-slate-900">Aquí va tu propuesta principal de temporada</p>
                 <p className="mt-2 text-sm text-slate-600">
-                  Puedes destacar un tour, promocion o circuito clave con una imagen potente y CTA directo.
+                  Puedes destacar un tour, promoción o circuito clave con una imagen potente y CTA directo.
                 </p>
               </div>
             </div>
@@ -134,9 +134,9 @@ export default function DemoSiteHomePage() {
         <div className="rounded-3xl border border-emerald-100 bg-white p-7 shadow-sm">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Turismo local e internacional</p>
-            <h2 className="mt-3 text-3xl font-black text-slate-950">Una seccion para explicar como trabaja tu agencia</h2>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">Una sección para explicar cómo trabaja tu agencia</h2>
             <p className="mt-3 text-slate-700">
-              Aqui muestras tu enfoque: calidad operativa, proveedores de confianza y experiencia real para cada perfil de viajero.
+              Aquí muestras tu enfoque: calidad operativa, proveedores de confianza y experiencia real para cada perfil de viajero.
             </p>
           </div>
 
@@ -148,7 +148,7 @@ export default function DemoSiteHomePage() {
               Aliados: +30
             </span>
             <span className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-extrabold text-emerald-800">
-              Atencion: Personalizada
+              Atención: Personalizada
             </span>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function DemoSiteHomePage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Tours destacados</p>
-            <h2 className="mt-2 text-3xl font-black text-slate-950">Asi se verian tus paquetes estrella</h2>
+            <h2 className="mt-2 text-3xl font-black text-slate-950">Así se verían tus paquetes estrella</h2>
           </div>
           <Link href="/demo-sitio/tours" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-extrabold text-slate-800 hover:bg-slate-100">
             Ver todos los tours
@@ -202,7 +202,7 @@ export default function DemoSiteHomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-10">
         <div className="rounded-3xl border border-slate-200 bg-white p-7">
-          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Por que elegir tu agencia</p>
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Por qué elegir tu agencia</p>
           <h2 className="mt-2 text-3xl font-black text-slate-950">Bloque de confianza que impulsa conversion</h2>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -218,10 +218,10 @@ export default function DemoSiteHomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-10">
         <div className="rounded-3xl bg-emerald-950 px-6 py-8 text-white">
-          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-200">Aliados turisticos</p>
-          <h2 className="mt-2 text-3xl font-black">Aqui iria el carrusel de proveedores de tu agencia</h2>
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-200">Aliados turísticos</p>
+          <h2 className="mt-2 text-3xl font-black">Aquí iría el carrusel de proveedores de tu agencia</h2>
           <p className="mt-3 max-w-3xl text-sm text-emerald-100">
-            En produccion, esta seccion puede mostrar logos reales, convenios y certificaciones para reforzar credibilidad.
+            En producción, esta sección puede mostrar logos reales, convenios y certificaciones para reforzar credibilidad.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -237,9 +237,9 @@ export default function DemoSiteHomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">Contacto directo</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950">Listo para planear tu proximo viaje</h2>
+          <h2 className="mt-2 text-3xl font-black text-slate-950">Listo para planear tu próximo viaje</h2>
           <p className="mt-3 max-w-2xl text-slate-700">
-            Este cierre replica la idea de una home comercial: resolver dudas rapido y mover al usuario a accion.
+            Este cierre replica la idea de una home comercial: resolver dudas rápido y mover al usuario a acción.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">

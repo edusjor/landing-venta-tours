@@ -5,16 +5,16 @@ export default function DemoSiteContactPage() {
     <section className="mx-auto max-w-5xl px-4 py-16">
       <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
         <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-600">Contacto (demo)</p>
-        <h1 className="mt-3 text-4xl font-black text-slate-900">Contactanos</h1>
+        <h1 className="mt-3 text-4xl font-black text-slate-900">Contáctanos</h1>
         <p className="mt-4 text-slate-700">
-          Este formulario es una referencia de como tu agencia podria capturar solicitudes de viaje.
+          Este formulario es una referencia de cómo tu agencia podría capturar solicitudes de viaje.
         </p>
 
         <div className="mt-5 rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">
-          Vista solo demostracion: este formulario esta bloqueado para evitar confusiones.
+          Vista solo demostración: este formulario está bloqueado para evitar confusiones.
           Para solicitar tu web, usa el formulario real de solicitud{" "}
           <Link href="/#formulario-contacto" className="underline decoration-2 underline-offset-2 hover:text-amber-700">
-            aqui
+            aquí
           </Link>
           .
         </div>
@@ -35,11 +35,11 @@ export default function DemoSiteContactPage() {
               className="rounded-xl border border-slate-300 bg-slate-100 px-4 py-3 text-slate-500"
             />
             <input
-              placeholder="Pais"
+              placeholder="País"
               className="rounded-xl border border-slate-300 bg-slate-100 px-4 py-3 text-slate-500"
             />
             <textarea
-              placeholder="Que tour te interesa?"
+              placeholder="¿Qué tour te interesa?"
               rows={5}
               className="rounded-xl border border-slate-300 bg-slate-100 px-4 py-3 text-slate-500 md:col-span-2"
             />

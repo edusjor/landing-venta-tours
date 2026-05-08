@@ -36,8 +36,8 @@ export default function LandingLeadForm() {
     const payloadMessage = [
       `Nombre completo: ${nombreCompleto.trim()}`,
       `Agencia: ${agencia.trim()}`,
-      `Pais: ${pais.trim()}`,
-      `Tiene pagina web: ${tieneWeb}`,
+      `País: ${pais.trim()}`,
+      `Tiene página web: ${tieneWeb}`,
       `URL actual: ${urlActual.trim() || "No aplica"}`,
       `Cantidad de tours: ${cantidadTours}`,
       `Necesidad principal: ${necesidadPrincipal}`,
@@ -67,7 +67,7 @@ export default function LandingLeadForm() {
       }
 
       setStatusType("success");
-      setStatus("Envio exitoso. Recibimos tu solicitud y te contactaremos pronto.");
+      setStatus("Envío exitoso. Recibimos tu solicitud y te contactaremos pronto.");
 
       setNombreCompleto("");
       setAgencia("");
@@ -81,7 +81,7 @@ export default function LandingLeadForm() {
       setMensaje("");
     } catch {
       setStatusType("error");
-      setStatus("No se pudo enviar la solicitud por un error de conexion.");
+      setStatus("No se pudo enviar la solicitud por un error de conexión.");
     } finally {
       setIsSubmitting(false);
     }
@@ -136,7 +136,7 @@ export default function LandingLeadForm() {
       </label>
 
       <label className="grid gap-2 text-sm font-semibold">
-        Correo electronico
+        Correo electrónico
         <input
           required
           name="email"
@@ -148,7 +148,7 @@ export default function LandingLeadForm() {
       </label>
 
       <label className="grid self-start gap-2 text-sm font-semibold">
-        Pais
+        País
         <input
           required
           name="pais"
@@ -159,7 +159,7 @@ export default function LandingLeadForm() {
       </label>
 
       <fieldset className="grid gap-2 text-sm font-semibold">
-        <legend className="mb-1 text-sm">Tienes pagina web actualmente?</legend>
+        <legend className="mb-1 text-sm">¿Tienes página web actualmente?</legend>
         <label className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2">
           <input required type="radio" name="tieneWeb" value="si" checked={tieneWeb === "si"} onChange={(e) => setTieneWeb(e.target.value)} />
           Si
@@ -171,7 +171,7 @@ export default function LandingLeadForm() {
       </fieldset>
 
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-        URL de la pagina actual (opcional)
+        URL de la página actual (opcional)
         <input
           name="urlActual"
           type="url"
@@ -191,16 +191,16 @@ export default function LandingLeadForm() {
           onChange={(e) => setCantidadTours(e.target.value)}
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         >
-          <option value="">Selecciona una opcion</option>
+          <option value="">Selecciona una opción</option>
           <option value="1-5">1-5</option>
           <option value="6-15">6-15</option>
           <option value="16-30">16-30</option>
-          <option value="mas-de-30">mas de 30</option>
+          <option value="mas-de-30">más de 30</option>
         </select>
       </label>
 
       <label className="grid gap-2 text-sm font-semibold">
-        Que necesitas principalmente?
+        ¿Qué necesitas principalmente?
         <select
           required
           name="necesidadPrincipal"
@@ -208,7 +208,7 @@ export default function LandingLeadForm() {
           onChange={(e) => setNecesidadPrincipal(e.target.value)}
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         >
-          <option value="">Selecciona una opcion</option>
+          <option value="">Selecciona una opción</option>
           <option value="mostrar-tours">Mostrar tours de forma profesional</option>
           <option value="consultas-reservas">Recibir consultas o reservas</option>
           <option value="pagos-online">Aceptar pagos online</option>
@@ -222,7 +222,7 @@ export default function LandingLeadForm() {
         <textarea
           name="mensaje"
           rows={5}
-          placeholder="Cuentanos que tours vendes y que objetivo quieres lograr con tu web"
+          placeholder="Cuéntanos qué tours vendes y qué objetivo quieres lograr con tu web"
           value={mensaje}
           onChange={(e) => setMensaje(e.target.value)}
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
@@ -238,7 +238,7 @@ export default function LandingLeadForm() {
           {isSubmitting ? "Enviando..." : "Enviar solicitud"}
         </button>
         <p className="mt-3 text-center text-sm text-emerald-100/80">
-          Formulario demo con validacion basica. Te ayuda a visualizar la experiencia de captacion.
+          Formulario demo con validación básica. Te ayuda a visualizar la experiencia de captación.
         </p>
 
         {status ? <p className={statusClassName}>{status}</p> : null}

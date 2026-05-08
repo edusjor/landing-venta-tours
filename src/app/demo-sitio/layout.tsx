@@ -11,7 +11,7 @@ export default function DemoSiteLayout({ children }: { children: React.ReactNode
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <div className="bg-amber-100 px-4 py-2 text-center text-xs font-extrabold uppercase tracking-wide text-amber-900">
-        Demo comercial: asi podria verse la web de tu agencia segun tu informacion
+        Demo comercial: así podría verse la web de tu agencia según tu información
       </div>
 
       <header className="sticky top-0 z-40 border-b border-emerald-900/20 bg-emerald-950 text-white backdrop-blur">

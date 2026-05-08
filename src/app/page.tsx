@@ -4,7 +4,7 @@ import LandingLeadForm from "./components/LandingLeadForm";
 const HERO_SLIDES = [
   {
     src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2200&q=80",
-    alt: "Montanas para tours de aventura",
+    alt: "Montañas para tours de aventura",
   },
   {
     src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2200&q=80",
@@ -12,7 +12,7 @@ const HERO_SLIDES = [
   },
   {
     src: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=2200&q=80",
-    alt: "Viajeros en ruta ecoturistica",
+    alt: "Viajeros en ruta ecoturística",
   },
   {
     src: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2200&q=80",
@@ -26,41 +26,41 @@ const HERO_SLIDES = [
 
 const HERO_BENEFITS = [
   "Sitio web personalizado",
-  "Catalogo de tours",
+  "Catálogo de tours",
   "Reservas o pagos online",
-  "Optimizado para moviles",
-  "Panel de administracion",
+  "Optimizado para móviles",
+  "Panel de administración",
 ] as const;
 
 const PROBLEM_CARDS = [
   "Demasiadas consultas repetidas",
-  "Informacion desordenada",
+  "Información desordenada",
   "Poca confianza al reservar",
 ] as const;
 
 const WHAT_YOU_GET = [
   {
-    title: "Catalogo de tours",
-    desc: "Publica tus tours con fotos, precios, itinerario, duracion, ubicacion, inclusiones y detalles importantes.",
+    title: "Catálogo de tours",
+    desc: "Publica tus tours con fotos, precios, itinerario, duración, ubicación, inclusiones y detalles importantes.",
   },
   {
-    title: "Pagina individual para cada tour",
-    desc: "Cada paquete puede tener su propia pagina con informacion completa para que el cliente entienda mejor antes de consultar o reservar.",
+    title: "Página individual para cada tour",
+    desc: "Cada paquete puede tener su propia página con información completa para que el cliente entienda mejor antes de consultar o reservar.",
   },
   {
     title: "Formulario de consulta o reserva",
-    desc: "Permite que los clientes envien sus datos, seleccionen el tour de interes y soliciten mas informacion.",
+    desc: "Permite que los clientes envíen sus datos, seleccionen el tour de interés y soliciten más información.",
   },
   {
     title: "Pago online de tours",
-    desc: "Segun las necesidades de tu agencia, se puede integrar pago online, pago por deposito o solicitud de reserva.",
+    desc: "Según las necesidades de tu agencia, se puede integrar pago online, pago por depósito o solicitud de reserva.",
   },
   {
-    title: "Panel de administracion",
-    desc: "Administra tours, precios, imagenes y contenido sin depender siempre de un programador.",
+    title: "Panel de administración",
+    desc: "Administra tours, precios, imágenes y contenido sin depender siempre de un programador.",
   },
   {
-    title: "Diseno adaptado a tu marca",
+    title: "Diseño adaptado a tu marca",
     desc: "La web se personaliza con los colores, logo, estilo y contenido de tu agencia.",
   },
 ] as const;
@@ -69,81 +69,81 @@ const HOW_IT_WORKS = [
   {
     n: "01",
     title: "Analizamos tu agencia",
-    desc: "Revisamos que tipo de tours vendes, como reservas actualmente y que necesita tu negocio.",
+    desc: "Revisamos qué tipo de tours vendes, cómo reservas actualmente y qué necesita tu negocio.",
   },
   {
     n: "02",
     title: "Personalizamos tu web",
-    desc: "Adaptamos el diseno, la estructura, los colores, el contenido y las funciones principales.",
+    desc: "Adaptamos el diseño, la estructura, los colores, el contenido y las funciones principales.",
   },
   {
     n: "03",
     title: "Publicas tus tours",
-    desc: "Cargas o entregas la informacion de tus paquetes para que queden organizados en la web.",
+    desc: "Cargas o entregas la información de tus paquetes para que queden organizados en la web.",
   },
   {
     n: "04",
     title: "Recibes consultas o reservas",
-    desc: "Tus clientes pueden ver la informacion completa y contactarte con mayor claridad.",
+    desc: "Tus clientes pueden ver la información completa y contactarte con mayor claridad.",
   },
 ] as const;
 
 const BENEFITS = [
   "Mejora la imagen profesional de tu agencia",
-  "Ordena la informacion de tus tours",
+  "Ordena la información de tus tours",
   "Reduce mensajes repetidos",
   "Ayuda a generar confianza",
   "Facilita las consultas y reservas",
-  "Permite escalar tu operacion turistica",
+  "Permite escalar tu operación turística",
 ] as const;
 
 const IDEAL_FOR = [
   "Agencias de tours nacionales",
   "Agencias de viajes internacionales",
-  "Operadores turisticos",
-  "Empresas que venden paquetes turisticos",
-  "Guias o negocios que quieren formalizar su oferta",
+  "Operadores turísticos",
+  "Empresas que venden paquetes turísticos",
+  "Guías o negocios que quieren formalizar su oferta",
   "Agencias que quieren dejar de depender solo de redes sociales",
 ] as const;
 
 const DEMO_FLOW_STEPS = [
   {
     n: "01",
-    title: "Catalogo con filtros",
-    desc: "Tus clientes encuentran tours por destino, categoria, duracion y presupuesto.",
+    title: "Catálogo con filtros",
+    desc: "Tus clientes encuentran tours por destino, categoría, duración y presupuesto.",
   },
   {
     n: "02",
-    title: "Detalle y seleccion de fecha",
-    desc: "Revisan informacion completa del tour y eligen la fecha ideal para reservar.",
+    title: "Detalle y selección de fecha",
+    desc: "Revisan información completa del tour y eligen la fecha ideal para reservar.",
   },
   {
     n: "03",
     title: "Reserva y pago demo",
-    desc: "Completan el checkout para ver como se cierra una venta online en tu web.",
+    desc: "Completan el checkout para ver cómo se cierra una venta online en tu web.",
   },
 ] as const;
 
 const FAQS = [
   {
-    q: "Es una pagina web normal o un sistema de tours?",
-    a: "Es una pagina web desarrollada especialmente para agencias de turismo, con estructura para mostrar tours, organizar informacion y facilitar consultas o reservas.",
+    q: "¿Es una página web normal o un sistema de tours?",
+    a: "Es una página web desarrollada especialmente para agencias de turismo, con estructura para mostrar tours, organizar información y facilitar consultas o reservas.",
   },
   {
-    q: "Puedo administrar mis tours?",
-    a: "Si. La idea es que la agencia pueda gestionar su informacion principal, como tours, precios, imagenes y detalles.",
+    q: "¿Puedo administrar mis tours?",
+    a: "Sí. La idea es que la agencia pueda gestionar su información principal, como tours, precios, imágenes y detalles.",
   },
   {
-    q: "Se puede agregar pago online?",
-    a: "Si, dependiendo de la necesidad de la agencia se puede integrar pago online, pago por deposito o formularios de reserva.",
+    q: "¿Se puede agregar pago online?",
+    a: "Sí, dependiendo de la necesidad de la agencia se puede integrar pago online, pago por depósito o formularios de reserva.",
   },
   {
-    q: "La web se adapta a mi marca?",
-    a: "Si. El diseno se personaliza con el logo, colores, contenido e imagen de la agencia.",
+    q: "¿La web se adapta a mi marca?",
+    a: "Sí. El diseño se personaliza con el logo, colores, contenido e imagen de la agencia.",
   },
   {
-    q: "Sirve si ya tengo una pagina web?",
-    a: "Si. Se puede valorar si conviene mejorar la web actual o desarrollar una nueva estructura mas enfocada en tours.",
+    q: "¿Sirve si ya tengo una página web?",
+    a: "Sí. Se puede valorar si conviene mejorar la web actual o desarrollar una nueva estructura más enfocada en tours.",
   },
 ] as const;
 
@@ -174,8 +174,8 @@ export default function Home() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
-            Desarrollamos una pagina web profesional con sistema de tours para que tu agencia
-            pueda mostrar paquetes, recibir consultas, gestionar reservas y vender de forma mas ordenada.
+            Desarrollamos una página web profesional con sistema de tours para que tu agencia
+            pueda mostrar paquetes, recibir consultas, gestionar reservas y vender de forma más ordenada.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
@@ -183,7 +183,7 @@ export default function Home() {
               href="#formulario-contacto"
               className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-500 px-6 py-3 text-base font-extrabold text-white shadow-2xl shadow-emerald-950/40 transition hover:bg-emerald-400 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
             >
-              Solicitar informacion
+              Solicitar información
             </Link>
             <Link
               href="#que-incluye"
@@ -217,14 +217,14 @@ export default function Home() {
       <section id="problema" className="bg-white py-16 scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Problema comun</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Problema común</p>
             <h2 className="mt-3 text-3xl font-extrabold leading-tight text-emerald-950 sm:text-5xl">
-              Todavia vendes tus tours solo por WhatsApp o redes sociales?
+              ¿Todavía vendes tus tours solo por WhatsApp o redes sociales?
             </h2>
             <p className="mt-4 text-base text-slate-600 sm:mt-5 sm:text-lg">
-              Cuando la informacion esta dispersa, los clientes preguntan lo mismo una y otra vez:
-              precios, fechas, itinerarios, que incluye el tour y como reservar. Una web bien estructurada
-              ayuda a que tu agencia se vea mas profesional y que tus clientes entiendan mejor lo que
+              Cuando la información está dispersa, los clientes preguntan lo mismo una y otra vez:
+              precios, fechas, itinerarios, qué incluye el tour y cómo reservar. Una web bien estructurada
+              ayuda a que tu agencia se vea más profesional y que tus clientes entiendan mejor lo que
               ofreces antes de contactarte.
             </p>
           </div>
@@ -242,7 +242,7 @@ export default function Home() {
       <section id="que-incluye" className="section-band py-16 scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Que recibe la agencia</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Qué recibe la agencia</p>
             <h2 className="mt-3 text-3xl font-extrabold leading-tight text-emerald-950 sm:text-5xl">
               Una web pensada para agencias de tours
             </h2>
@@ -263,10 +263,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-300 sm:text-sm">Demo funcional</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Asi se veria el flujo real de reservas de tu agencia</h2>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Así se vería el flujo real de reservas de tu agencia</h2>
             <p className="mt-4 text-emerald-100/85">
-              Esta vista resume la experiencia que vivira tu cliente desde que entra al catalogo
-              hasta que completa la reserva. La demo completa esta en un sitio separado para mostrarla sin distracciones.
+              Esta vista resume la experiencia que vivirá tu cliente desde que entra al catálogo
+              hasta que completa la reserva. La demo completa está en un sitio separado para mostrarla sin distracciones.
             </p>
           </div>
 
@@ -302,8 +302,8 @@ export default function Home() {
       <section id="como-funciona" className="bg-white py-16 scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Como funciona</p>
-            <h2 className="mt-3 text-3xl font-extrabold text-emerald-950 sm:text-5xl">Asi desarrollamos tu sistema de tours</h2>
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Cómo funciona</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-emerald-950 sm:text-5xl">Así desarrollamos tu sistema de tours</h2>
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -323,7 +323,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Beneficios</p>
             <h2 className="mt-3 text-3xl font-extrabold text-emerald-950 sm:text-5xl">
-              Mas que una pagina bonita: una herramienta para vender mejor
+              Más que una página bonita: una herramienta para vender mejor
             </h2>
           </div>
 
@@ -340,7 +340,7 @@ export default function Home() {
       <section id="para-quien" className="bg-white py-16 scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Para quien es</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Para quién es</p>
             <h2 className="mt-3 text-3xl font-extrabold text-emerald-950 sm:text-5xl">Este sistema es ideal para</h2>
           </div>
 
@@ -357,11 +357,11 @@ export default function Home() {
       <section id="formulario-contacto" className="bg-emerald-950 py-16 text-white scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-300 sm:text-sm">Solicitar cotizacion</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Solicita informacion para tu agencia</h2>
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-300 sm:text-sm">Solicitar cotización</p>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Solicita información para tu agencia</h2>
             <p className="mt-4 text-base text-emerald-100/85 sm:text-lg">
-              Dejanos tus datos y cuentanos un poco sobre tu agencia. Te contactaremos para explicarte
-              como puede funcionar tu pagina web con sistema de tours.
+              Déjanos tus datos y cuéntanos un poco sobre tu agencia. Te contactaremos para explicarte
+              cómo puede funcionar tu página web con sistema de tours.
             </p>
           </div>
 
@@ -390,7 +390,7 @@ export default function Home() {
       <section className="bg-emerald-950 py-16 text-white sm:py-24">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="text-3xl font-extrabold leading-tight sm:text-5xl">
-            Haz que tu agencia venda sus tours de forma mas profesional
+            Haz que tu agencia venda sus tours de forma más profesional
           </h2>
           <p className="mt-4 text-base text-emerald-200/85 sm:mt-5 sm:text-lg">
             Organiza tus paquetes, mejora la confianza de tus clientes y lleva tu agencia a una web
@@ -400,7 +400,7 @@ export default function Home() {
             href="#formulario-contacto"
             className="mt-7 inline-flex w-full items-center justify-center rounded-xl bg-emerald-500 px-6 py-3 text-base font-extrabold text-white transition hover:bg-emerald-400 sm:mt-8 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
           >
-            Solicitar informacion
+            Solicitar información
           </Link>
         </div>
       </section>
