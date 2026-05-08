@@ -17,7 +17,22 @@ const kaushan = Kaushan_Script({
   weight: ["400"],
 });
 
+function resolveMetadataBase(): URL | undefined {
+  const directSiteUrl = String(process.env.NEXT_PUBLIC_SITE_URL ?? "").trim();
+  const rootDomain = String(process.env.NEXT_PUBLIC_PLATFORM_ROOT_DOMAIN ?? process.env.PLATFORM_ROOT_DOMAIN ?? "").trim();
+  const candidate = directSiteUrl || (rootDomain ? `https://${rootDomain}` : "");
+
+  if (!candidate) return undefined;
+
+  try {
+    return new URL(candidate);
+  } catch {
+    return undefined;
+  }
+}
+
 export const metadata: Metadata = {
+  metadataBase: resolveMetadataBase(),
   title: String(process.env.NEXT_PUBLIC_PLATFORM_NAME ?? process.env.PLATFORM_DEFAULT_AGENCY_NAME ?? process.env.DEFAULT_AGENCY_NAME ?? 'Plataforma de Tours').trim() || 'Plataforma de Tours',
   description: String(process.env.NEXT_PUBLIC_PLATFORM_DESCRIPTION ?? process.env.PLATFORM_DEFAULT_AGENCY_DESCRIPTION ?? 'Sitio web de tours y experiencias').trim() || 'Sitio web de tours y experiencias',
 };
