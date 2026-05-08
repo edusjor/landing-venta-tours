@@ -4,22 +4,29 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const MAIN_LINKS = [
-  { href: "/", label: "Inicio" },
-  { href: "/tours", label: "Tours" },
-  { href: "/agencias/acceso", label: "Agencias" },
-  { href: "/quienes-somos", label: "Nosotros" },
-  { href: "/contacto", label: "Contacto" },
-] as const;
+type NavLink = {
+  href: string;
+  label: string;
+  openInNewTab: boolean;
+  isButton: boolean;
+};
 
-const LANDING_LINKS = [
-  { href: "/#que-incluye", label: "Que incluye", openInNewTab: false },
-  { href: "/#demo-funcional", label: "Demo", openInNewTab: false },
-  { href: "/#como-funciona", label: "Como funciona", openInNewTab: false },
-  { href: "/#faq", label: "FAQ", openInNewTab: false },
-  { href: "/demo-sitio", label: "Ver demos", openInNewTab: true },
+const MAIN_LINKS: NavLink[] = [
+  { href: "/", label: "Inicio", openInNewTab: false, isButton: false },
+  { href: "/tours", label: "Tours", openInNewTab: false, isButton: false },
+  { href: "/agencias/acceso", label: "Agencias", openInNewTab: false, isButton: false },
+  { href: "/quienes-somos", label: "Nosotros", openInNewTab: false, isButton: false },
+  { href: "/contacto", label: "Contacto", openInNewTab: false, isButton: false },
+];
+
+const LANDING_LINKS: NavLink[] = [
+  { href: "/#que-incluye", label: "Que incluye", openInNewTab: false, isButton: false },
+  { href: "/#demo-funcional", label: "Demo", openInNewTab: false, isButton: false },
+  { href: "/#como-funciona", label: "Como funciona", openInNewTab: false, isButton: false },
+  { href: "/#faq", label: "FAQ", openInNewTab: false, isButton: false },
+  { href: "/demo-sitio", label: "Ver demos", openInNewTab: true, isButton: false },
   { href: "/#formulario-contacto", label: "Contacto", openInNewTab: false, isButton: true },
-] as const;
+];
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -53,9 +60,7 @@ export default function SiteHeader({ agency }: { agency?: SiteHeaderAgency | nul
   const agencyName = String(agency?.name ?? "Agencia de Tours").trim() || "Agencia de Tours";
   const logoUrl = String(agency?.logoUrl ?? "").trim() || DEFAULT_LOGO;
   const isMainLanding = pathname === "/";
-  const navLinks = isMainLanding
-    ? LANDING_LINKS
-    : MAIN_LINKS.map((item) => ({ ...item, openInNewTab: false, isButton: false }));
+  const navLinks = isMainLanding ? LANDING_LINKS : MAIN_LINKS;
 
   return (
     <header className="site-header">

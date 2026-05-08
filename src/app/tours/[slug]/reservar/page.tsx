@@ -555,7 +555,7 @@ function ReservarPageContent({
   packageFromQuery: string | null;
   dateFromQuery: string | null;
 }) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const isDemoSiteRoute = pathname === "/demo-sitio/tours" || pathname.startsWith("/demo-sitio/tours/");
   const router = useRouter();
   const [hydrated, setHydrated] = useState(false);
@@ -1077,6 +1077,11 @@ function ReservarPageContent({
       return;
     }
 
+    if (!tour) {
+      setStatus("No se encontró la información del tour. Recarga la página e intenta nuevamente.");
+      return;
+    }
+
     const selectedPrices = visiblePriceOptions
       .map((option) => ({
         id: option.id,
@@ -1121,11 +1126,6 @@ function ReservarPageContent({
       setIsCreatingPayment(true);
       setIsConfirmingReservation(false);
       setStatus(isManualPaymentMethod ? "Creando tu reserva con pago manual..." : "Preparando tu reserva y creando la sesión de pago...");
-
-      if (!tour) {
-        setStatus("No se encontró la información del tour. Recarga la página e intenta nuevamente.");
-        return;
-      }
 
       const fallbackDemoName = "Cliente";
       const fallbackDemoLastName = "Demo";

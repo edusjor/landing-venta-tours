@@ -20,7 +20,7 @@ export default function AgencyAccessPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialMode = useMemo<AccessMode>(() => {
-    return searchParams.get("mode") === "signup" ? "signup" : "login";
+    return searchParams?.get("mode") === "signup" ? "signup" : "login";
   }, [searchParams]);
 
   const [mode, setMode] = useState<AccessMode>(initialMode);

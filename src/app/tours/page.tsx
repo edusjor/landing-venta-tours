@@ -251,7 +251,7 @@ function getTourRouteParam(tour: Tour): string {
 }
 
 export default function ToursPage() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const searchParams = useSearchParams();
   const activeAgencySlug = getClientPublicAgencySlug(searchParams?.get("agency"));
   const isDemoSiteRoute = pathname === "/demo-sitio/tours" || pathname.startsWith("/demo-sitio/tours/");

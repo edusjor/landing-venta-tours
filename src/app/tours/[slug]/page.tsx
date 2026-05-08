@@ -282,7 +282,7 @@ function buildTourRouteParam(tour: Pick<Tour, "id" | "slug">): string {
 }
 
 export default function TourDetailPage() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const params = useParams();
   const searchParams = useSearchParams();
   const tourSlug = typeof params?.slug === "string" ? params.slug : "";

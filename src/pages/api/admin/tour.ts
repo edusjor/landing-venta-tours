@@ -459,7 +459,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           price: effectiveTourPrice,
           minPeople,
           images,
-          category: { connect: { id: nextCategoryId } },
+          categoryId: nextCategoryId,
           status: status || 'BORRADOR',
           country: country ?? undefined,
           zone: zone ?? undefined,

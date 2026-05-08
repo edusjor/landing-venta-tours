@@ -17,6 +17,20 @@ type AgencySettings = {
   publicUrl: string | null;
 };
 
+type AgencySettingsForm = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  email: string;
+  phone: string;
+  whatsapp: string;
+  logoUrl: string;
+  coverImageUrl: string;
+  publicHost: string;
+  publicUrl: string;
+};
+
 function normalizeInputValue(value: string | null | undefined): string {
   return String(value ?? "");
 }
@@ -27,7 +41,7 @@ export default function AdminAgencySettingsPage() {
   const [loading, setLoading] = useState(false);
   const [uploadingField, setUploadingField] = useState<"logo" | "cover" | null>(null);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
-  const [form, setForm] = useState<AgencySettings>({
+  const [form, setForm] = useState<AgencySettingsForm>({
     id: 0,
     slug: "",
     name: "",
@@ -90,7 +104,7 @@ export default function AdminAgencySettingsPage() {
     void loadAgency();
   }, [isAuthenticated]);
 
-  const updateField = (field: keyof AgencySettings, value: string) => {
+  const updateField = (field: keyof AgencySettingsForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 

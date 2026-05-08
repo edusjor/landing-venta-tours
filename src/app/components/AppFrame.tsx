@@ -20,7 +20,7 @@ export default function AppFrame({
   children: React.ReactNode;
   publicAgency: PublicAgencyChrome | null;
 }>) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const isAdminRoute = pathname === "/admin" || pathname.startsWith("/admin/");
   const isDemoSiteRoute = pathname === "/demo-sitio" || pathname.startsWith("/demo-sitio/");
   const isMainLandingRoute = pathname === "/";
