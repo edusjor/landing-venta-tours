@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LandingLeadForm from "./components/LandingLeadForm";
 
 const HERO_SLIDES = [
   {
@@ -364,106 +365,7 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="mx-auto mt-10 grid max-w-4xl gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm sm:mt-12 sm:p-6 md:grid-cols-2">
-            <label className="grid gap-2 text-sm font-semibold">
-              Nombre completo
-              <input required name="nombreCompleto" className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring" />
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold">
-              Nombre de la agencia
-              <input required name="agencia" className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring" />
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold">
-              WhatsApp
-              <input
-                required
-                name="whatsapp"
-                type="tel"
-                minLength={7}
-                pattern="[0-9+()\-\s]{7,}"
-                className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
-              />
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold">
-              Correo electronico
-              <input required name="email" type="email" className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring" />
-            </label>
-
-            <label className="grid self-start gap-2 text-sm font-semibold">
-              Pais
-              <input required name="pais" className="h-12 rounded-xl border border-white/25 bg-white/95 px-4 text-slate-900 outline-none ring-emerald-300 focus:ring" />
-            </label>
-
-            <fieldset className="grid gap-2 text-sm font-semibold">
-              <legend className="mb-1 text-sm">Tienes pagina web actualmente?</legend>
-              <label className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2">
-                <input required type="radio" name="tieneWeb" value="si" />
-                Si
-              </label>
-              <label className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2">
-                <input required type="radio" name="tieneWeb" value="no" />
-                No
-              </label>
-            </fieldset>
-
-            <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-              URL de la pagina actual (opcional)
-              <input
-                name="urlActual"
-                type="url"
-                placeholder="https://tuagencia.com"
-                className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
-              />
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold">
-              Cuantos tours manejas aproximadamente?
-              <select required name="cantidadTours" className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring">
-                <option value="">Selecciona una opcion</option>
-                <option value="1-5">1-5</option>
-                <option value="6-15">6-15</option>
-                <option value="16-30">16-30</option>
-                <option value="mas-de-30">mas de 30</option>
-              </select>
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold">
-              Que necesitas principalmente?
-              <select required name="necesidadPrincipal" className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring">
-                <option value="">Selecciona una opcion</option>
-                <option value="mostrar-tours">Mostrar tours de forma profesional</option>
-                <option value="consultas-reservas">Recibir consultas o reservas</option>
-                <option value="pagos-online">Aceptar pagos online</option>
-                <option value="mejorar-web">Mejorar una web existente</option>
-                <option value="crear-web">Crear una web desde cero</option>
-              </select>
-            </label>
-
-            <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-              Mensaje adicional
-              <textarea
-                name="mensaje"
-                rows={5}
-                placeholder="Cuentanos que tours vendes y que objetivo quieres lograr con tu web"
-                className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
-              />
-            </label>
-
-            <div className="md:col-span-2">
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-emerald-400 px-6 py-3 text-base font-extrabold text-emerald-950 transition hover:bg-emerald-300 sm:py-4 sm:text-lg"
-              >
-                Enviar solicitud
-              </button>
-              <p className="mt-3 text-center text-sm text-emerald-100/80">
-                Formulario demo con validacion basica. Te ayuda a visualizar la experiencia de captacion.
-              </p>
-            </div>
-          </form>
+          <LandingLeadForm />
         </div>
       </section>
 

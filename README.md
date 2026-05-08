@@ -52,7 +52,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 docker compose -f docker-compose.vps.yml up -d --build
 ```
 
-La app queda publicada en `http://TU_IP:3003`.
+La app queda publicada en `http://TU_IP:9342`.
 
 ### 4) Comandos Utiles
 

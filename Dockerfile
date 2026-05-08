@@ -16,7 +16,7 @@ RUN npx next build
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=3003
+ENV PORT=9342
 RUN apk add --no-cache openssl
 
 COPY --from=builder /app/package.json ./package.json
@@ -28,7 +28,7 @@ COPY --from=builder /app/prisma ./prisma
 COPY docker/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
-EXPOSE 3003
+EXPOSE 9342
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["node", "node_modules/next/dist/bin/next", "start", "-p", "3003"]
+CMD ["node", "node_modules/next/dist/bin/next", "start", "-p", "9342"]

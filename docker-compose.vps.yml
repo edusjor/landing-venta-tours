@@ -5,17 +5,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: tours-app
+    container_name: landing-venta-tours
     restart: unless-stopped
     env_file:
       - .env
     environment:
       NODE_ENV: production
-      PORT: 3003
+      PORT: 9342
       RUN_DB_GENERATE: "false"
       RUN_DB_MIGRATIONS: "false"
       RUN_DB_PUSH: "false"
     ports:
-      - "3003:3003"
+      - "9342:9342"
     volumes:
       - ./uploads:/app/uploads
