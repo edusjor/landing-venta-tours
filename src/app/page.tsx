@@ -1,6 +1,105 @@
 import Link from "next/link";
 import LandingLeadForm from "./components/LandingLeadForm";
 
+type IconKey = "catalog" | "page" | "form" | "payment" | "panel" | "brand" | "star" | "folder" | "chat" | "shield" | "route" | "growth";
+
+function IconBadge({ icon }: { icon: IconKey }) {
+  const base = "h-5 w-5";
+
+  switch (icon) {
+    case "catalog":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <rect x="4" y="4" width="7" height="7" rx="1.5" />
+          <rect x="13" y="4" width="7" height="7" rx="1.5" />
+          <rect x="4" y="13" width="7" height="7" rx="1.5" />
+          <rect x="13" y="13" width="7" height="7" rx="1.5" />
+        </svg>
+      );
+    case "page":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M8 3h8l5 5v13H8z" />
+          <path d="M16 3v5h5" />
+          <path d="M11 13h7M11 17h7" />
+        </svg>
+      );
+    case "form":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M7 9h10M7 13h6M7 17h4" />
+        </svg>
+      );
+    case "payment":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <rect x="2.5" y="5" width="19" height="14" rx="2" />
+          <path d="M2.5 10h19M7 15h3" />
+        </svg>
+      );
+    case "panel":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <rect x="3" y="3" width="8" height="8" rx="1.5" />
+          <rect x="13" y="3" width="8" height="5" rx="1.5" />
+          <rect x="13" y="10" width="8" height="11" rx="1.5" />
+          <rect x="3" y="13" width="8" height="8" rx="1.5" />
+        </svg>
+      );
+    case "brand":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M3 12l9-9 9 9-9 9z" />
+          <path d="M12 7v10M7 12h10" />
+        </svg>
+      );
+    case "star":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M12 3l2.7 5.47L21 9.4l-4.5 4.38 1.06 6.22L12 17.1 6.44 20l1.06-6.22L3 9.4l6.3-.93z" />
+        </svg>
+      );
+    case "folder":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+      );
+    case "chat":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M4 5h16v10H8l-4 4z" />
+          <path d="M8 9h8M8 12h5" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M12 3l7 3v6c0 4.5-2.9 7.8-7 9-4.1-1.2-7-4.5-7-9V6z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      );
+    case "route":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <circle cx="6" cy="6" r="2" />
+          <circle cx="18" cy="18" r="2" />
+          <path d="M8 6h4a3 3 0 0 1 3 3v1a3 3 0 0 0 3 3h0" />
+        </svg>
+      );
+    case "growth":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={base}>
+          <path d="M4 18l5-5 4 4 7-8" />
+          <path d="M15 9h5v5" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 const HERO_SLIDES = [
   {
     src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2200&q=80",
@@ -40,26 +139,32 @@ const PROBLEM_CARDS = [
 
 const WHAT_YOU_GET = [
   {
+    icon: "catalog" as const,
     title: "Catálogo de tours",
     desc: "Publica tus tours con fotos, precios, itinerario, duración, ubicación, inclusiones y detalles importantes.",
   },
   {
+    icon: "page" as const,
     title: "Página individual para cada tour",
     desc: "Cada paquete puede tener su propia página con información completa para que el cliente entienda mejor antes de consultar o reservar.",
   },
   {
+    icon: "form" as const,
     title: "Formulario de consulta o reserva",
     desc: "Permite que los clientes envíen sus datos, seleccionen el tour de interés y soliciten más información.",
   },
   {
+    icon: "payment" as const,
     title: "Pago online de tours",
     desc: "Según las necesidades de tu agencia, se puede integrar pago online, pago por depósito o solicitud de reserva.",
   },
   {
+    icon: "panel" as const,
     title: "Panel de administración",
     desc: "Administra tours, precios, imágenes y contenido sin depender siempre de un programador.",
   },
   {
+    icon: "brand" as const,
     title: "Diseño adaptado a tu marca",
     desc: "La web se personaliza con los colores, logo, estilo y contenido de tu agencia.",
   },
@@ -89,12 +194,12 @@ const HOW_IT_WORKS = [
 ] as const;
 
 const BENEFITS = [
-  "Mejora la imagen profesional de tu agencia",
-  "Ordena la información de tus tours",
-  "Reduce mensajes repetidos",
-  "Ayuda a generar confianza",
-  "Facilita las consultas y reservas",
-  "Permite escalar tu operación turística",
+  { icon: "star" as const, text: "Mejora la imagen profesional de tu agencia" },
+  { icon: "folder" as const, text: "Ordena la información de tus tours" },
+  { icon: "chat" as const, text: "Reduce mensajes repetidos" },
+  { icon: "shield" as const, text: "Ayuda a generar confianza" },
+  { icon: "route" as const, text: "Facilita las consultas y reservas" },
+  { icon: "growth" as const, text: "Permite escalar tu operación turística" },
 ] as const;
 
 const IDEAL_FOR = [
@@ -250,7 +355,10 @@ export default function Home() {
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHAT_YOU_GET.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-emerald-100 bg-white p-7 shadow-sm">
+              <article key={item.title} className="feature-card rounded-2xl border border-emerald-100 bg-white p-7 shadow-sm">
+                <span className="icon-pill mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl text-emerald-700">
+                  <IconBadge icon={item.icon} />
+                </span>
                 <h3 className="text-lg font-extrabold text-emerald-900">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
               </article>
@@ -329,25 +437,48 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.map((benefit) => (
-              <div key={benefit} className="rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm">
-                <p className="font-bold text-slate-700">{benefit}</p>
+              <div key={benefit.text} className="feature-card rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="icon-pill mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-emerald-700">
+                    <IconBadge icon={benefit.icon} />
+                  </span>
+                  <p className="font-bold text-slate-700">{benefit.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="para-quien" className="bg-white py-16 scroll-mt-28 sm:py-24">
+      <section id="para-quien" className="ideal-band py-16 scroll-mt-28 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-600 sm:text-sm">Para quién es</p>
-            <h2 className="mt-3 text-3xl font-extrabold text-emerald-950 sm:text-5xl">Este sistema es ideal para</h2>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-200 sm:text-sm">Para quién es</p>
+            <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-5xl">Este sistema es ideal para</h2>
+            <p className="mt-4 text-emerald-100/85 sm:text-lg">
+              Si tu agencia quiere pasar de vender por mensajes sueltos a un proceso ordenado,
+              esta estructura encaja perfecto con tu operación.
+            </p>
           </div>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {IDEAL_FOR.map((item) => (
-              <div key={item} className="rounded-2xl border border-slate-100 bg-slate-50 p-5">
-                <p className="font-semibold text-slate-700">{item}</p>
+          <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {IDEAL_FOR.map((item, index) => (
+              <div key={item} className="ideal-chip rounded-xl border border-white/20 bg-white/10 p-5">
+                <p className="text-xs font-black tracking-[0.14em] text-emerald-200">0{index + 1}</p>
+                <div className="mt-3 h-px w-10 bg-emerald-200/35" />
+                <p className="mt-2 font-semibold text-white/95">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {[
+              "Ideal para equipos pequeños y medianos",
+              "Perfecto para vender con más claridad",
+              "Escalable según tus nuevos tours",
+            ].map((item) => (
+              <div key={item} className="rounded-xl border border-emerald-200/25 bg-transparent p-4 text-center text-sm font-semibold text-emerald-50/95">
+                {item}
               </div>
             ))}
           </div>
