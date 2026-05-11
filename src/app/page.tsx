@@ -119,8 +119,8 @@ const DEMO_FLOW_STEPS = [
   },
   {
     n: "03",
-    title: "Reserva y pago demo",
-    desc: "Completan el checkout para ver cómo se cierra una venta online en tu web.",
+    title: "Reserva y pago online",
+    desc: "Completan el checkout  pagando con su tarjeta de crédito o débito.",
   },
 ] as const;
 
@@ -263,10 +263,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-emerald-300 sm:text-sm">Demo funcional</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Así se vería el flujo real de reservas de tu agencia</h2>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-5xl">Este sería el flujo que tendría tu agencia online</h2>
             <p className="mt-4 text-emerald-100/85">
               Esta vista resume la experiencia que vivirá tu cliente desde que entra al catálogo
-              hasta que completa la reserva. La demo completa está en un sitio separado para mostrarla sin distracciones.
+              hasta que completa la reserva.
             </p>
           </div>
 
@@ -293,7 +293,7 @@ export default function Home() {
               href="#formulario-contacto"
               className="inline-flex w-full items-center justify-center rounded-xl border border-white/35 bg-white/10 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-white/20 sm:w-auto sm:px-7"
             >
-              Solicitar esta web para mi agencia
+              Solicitar sistema para mi agencia
             </Link>
           </div>
         </div>

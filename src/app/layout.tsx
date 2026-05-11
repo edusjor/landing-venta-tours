@@ -39,6 +39,7 @@ export const metadata: Metadata = {
 };
 
 const META_PIXEL_ID = "3137509159785214";
+const GA_MEASUREMENT_ID = "G-CSQBTE03KR";
 
 export default async function RootLayout({
   children,
@@ -76,6 +77,18 @@ export default async function RootLayout({
     <html lang="es">
       <head>
         <script dangerouslySetInnerHTML={{ __html: performancePolyfill }} />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
