@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import Script from "next/script";
 import { Nunito, Kaushan_Script } from "next/font/google";
 import AppFrame from "./components/AppFrame";
 import { resolvePublicAgencyFromHeaders } from "../lib/publicAgency";
@@ -37,6 +38,8 @@ export const metadata: Metadata = {
   description: String(process.env.NEXT_PUBLIC_PLATFORM_DESCRIPTION ?? process.env.PLATFORM_DEFAULT_AGENCY_DESCRIPTION ?? 'Sitio web de tours y experiencias').trim() || 'Sitio web de tours y experiencias',
 };
 
+const META_PIXEL_ID = "3137509159785214";
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -73,8 +76,29 @@ export default async function RootLayout({
     <html lang="es">
       <head>
         <script dangerouslySetInnerHTML={{ __html: performancePolyfill }} />
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${META_PIXEL_ID}');
+fbq('track', 'PageView');`}
+        </Script>
       </head>
       <body className={`${nunito.variable} ${kaushan.variable} min-h-screen bg-slate-100 text-slate-900`}>
+        <noscript>
+          <img
+            alt=""
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
         <AppFrame publicAgency={publicAgency}>{children}</AppFrame>
       </body>
     </html>

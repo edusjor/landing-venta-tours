@@ -4,6 +4,8 @@ import React from "react";
 
 type SubmitStatus = "idle" | "success" | "error";
 
+type MetaPixelFn = (...args: unknown[]) => void;
+
 export default function LandingLeadForm() {
   const [nombreCompleto, setNombreCompleto] = React.useState("");
   const [agencia, setAgencia] = React.useState("");
@@ -68,6 +70,11 @@ export default function LandingLeadForm() {
 
       setStatusType("success");
       setStatus("Envío exitoso. Recibimos tu solicitud y te contactaremos pronto.");
+
+      const fbq = (window as Window & { fbq?: MetaPixelFn }).fbq;
+      if (typeof fbq === "function") {
+        fbq("track", "Lead");
+      }
 
       setNombreCompleto("");
       setAgencia("");
