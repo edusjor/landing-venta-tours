@@ -27,13 +27,13 @@ export default function LandingLeadForm() {
 
     if (!nombreCompleto || !agencia || !whatsapp || !email || !pais || !tieneWeb || !cantidadTours || !necesidadPrincipal) {
       setStatusType("error");
-      setStatus("Por favor completa todos los campos obligatorios antes de enviar.");
+      setStatus("Por favor completa los campos obligatorios antes de enviar tu solicitud.");
       return;
     }
 
     setIsSubmitting(true);
     setStatusType("idle");
-    setStatus("Enviando solicitud...");
+    setStatus("Enviando tu solicitud...");
 
     const payloadMessage = [
       `Nombre completo: ${nombreCompleto.trim()}`,
@@ -69,7 +69,7 @@ export default function LandingLeadForm() {
       }
 
       setStatusType("success");
-      setStatus("Envío exitoso. Recibimos tu solicitud y te contactaremos pronto.");
+      setStatus("Solicitud enviada con éxito. Te contactaremos pronto para revisar tu caso.");
 
       const fbq = (window as Window & { fbq?: MetaPixelFn }).fbq;
       if (typeof fbq === "function") {
@@ -107,12 +107,13 @@ export default function LandingLeadForm() {
       className="mx-auto mt-10 grid max-w-4xl gap-4 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm sm:mt-12 sm:p-6 md:grid-cols-2"
     >
       <label className="grid gap-2 text-sm font-semibold">
-        Nombre completo
+        Nombre
         <input
           required
           name="nombreCompleto"
           value={nombreCompleto}
           onChange={(e) => setNombreCompleto(e.target.value)}
+          placeholder="Tu nombre completo"
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         />
       </label>
@@ -124,6 +125,7 @@ export default function LandingLeadForm() {
           name="agencia"
           value={agencia}
           onChange={(e) => setAgencia(e.target.value)}
+          placeholder="Nombre de tu agencia"
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         />
       </label>
@@ -138,18 +140,20 @@ export default function LandingLeadForm() {
           pattern="[0-9+()\-\s]{7,}"
           value={whatsapp}
           onChange={(e) => setWhatsapp(e.target.value)}
+          placeholder="Ej: +51 999 999 999"
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         />
       </label>
 
       <label className="grid gap-2 text-sm font-semibold">
-        Correo electrónico
+        Correo
         <input
           required
           name="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="tuagencia@email.com"
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
         />
       </label>
@@ -161,6 +165,7 @@ export default function LandingLeadForm() {
           name="pais"
           value={pais}
           onChange={(e) => setPais(e.target.value)}
+          placeholder="País donde opera tu agencia"
           className="h-12 rounded-xl border border-white/25 bg-white/95 px-4 text-slate-900 outline-none ring-emerald-300 focus:ring"
         />
       </label>
@@ -169,7 +174,7 @@ export default function LandingLeadForm() {
         <legend className="mb-1 text-sm">¿Tienes página web actualmente?</legend>
         <label className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2">
           <input required type="radio" name="tieneWeb" value="si" checked={tieneWeb === "si"} onChange={(e) => setTieneWeb(e.target.value)} />
-          Si
+          Sí
         </label>
         <label className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 py-2">
           <input required type="radio" name="tieneWeb" value="no" checked={tieneWeb === "no"} onChange={(e) => setTieneWeb(e.target.value)} />
@@ -178,7 +183,7 @@ export default function LandingLeadForm() {
       </fieldset>
 
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-        URL de la página actual (opcional)
+        URL de tu web actual (opcional)
         <input
           name="urlActual"
           type="url"
@@ -190,7 +195,7 @@ export default function LandingLeadForm() {
       </label>
 
       <label className="grid gap-2 text-sm font-semibold">
-        Cuantos tours manejas aproximadamente?
+        ¿Cuántos tours manejas aproximadamente?
         <select
           required
           name="cantidadTours"
@@ -225,11 +230,11 @@ export default function LandingLeadForm() {
       </label>
 
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-        Mensaje adicional
+        Mensaje o necesidad principal
         <textarea
           name="mensaje"
           rows={5}
-          placeholder="Cuéntanos qué tours vendes y qué objetivo quieres lograr con tu web"
+          placeholder="Cuéntanos brevemente sobre tu agencia y lo que esperas mejorar"
           value={mensaje}
           onChange={(e) => setMensaje(e.target.value)}
           className="rounded-xl border border-white/25 bg-white/95 px-4 py-3 text-slate-900 outline-none ring-emerald-300 focus:ring"
@@ -242,10 +247,10 @@ export default function LandingLeadForm() {
           disabled={isSubmitting}
           className="w-full rounded-xl bg-emerald-400 px-6 py-3 text-base font-extrabold text-emerald-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-80 sm:py-4 sm:text-lg"
         >
-          {isSubmitting ? "Enviando..." : "Enviar solicitud"}
+          {isSubmitting ? "Enviando..." : "Quiero que me contacten"}
         </button>
         <p className="mt-3 text-center text-sm text-emerald-100/80">
-          Formulario demo con validación básica. Te ayuda a visualizar la experiencia de captación.
+          Te contactaremos para entender tu agencia y explicarte cómo funcionaría tu web con Gestour.
         </p>
 
         {status ? <p className={statusClassName}>{status}</p> : null}
